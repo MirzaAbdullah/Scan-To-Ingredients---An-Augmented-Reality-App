@@ -18,7 +18,7 @@
     <!-- include ar.js for A-Frame -->
     <!-- <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/build/aframe-ar.js"> </script> -->
     <script src="Scripts/aframe-ar.js"></script>
-
+    
     <!-- include three.ar.js for A-Frame -->
     <script>
         THREEx.ArToolkitContext.baseURL = 'https://rawgit.com/jeromeetienne/ar.js/master/three.js/'
@@ -32,8 +32,8 @@
     </div>
     <a-scene embedded arjs='sourceType: webcam; detectionMode: mono; maxDetectionRate: 30; canvasWidth: 240; canvasHeight: 180'>
         <a-marker type='pattern' url='https://raw.githubusercontent.com/MirzaAbdullah/WebXR/master/Patterns/TUBerlin.patt'>
-            <a-entity scale="1 1 1" material='color: red; transparent: true; opacity: 0.8' obj-model="obj: url(https://raw.githubusercontent.com/MirzaAbdullah/WebXR/master/objModels/CocaCola/cocacola.compressed.obj);
-                           mtl: url(https://raw.githubusercontent.com/MirzaAbdullah/WebXR/master/objModels/CocaCola/cocacola.compressed.mtl);">
+            <a-entity scale="0.01 0.01 0.01" material='color: red; transparent: true; opacity: 0.8' obj-model="obj: url(https://raw.githubusercontent.com/MirzaAbdullah/WebXR/master/objModels/table/Table%20round.obj);
+                           mtl: url(https://raw.githubusercontent.com/MirzaAbdullah/WebXR/master/objModels/table/Table%20round.mtl);">
                 <a-animation attribute="rotation" to="0 360 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
             </a-entity>
         </a-marker>
