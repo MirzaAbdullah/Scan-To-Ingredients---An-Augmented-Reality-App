@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Scan to Ingredients • An Augmented Reality Application</title>
+    <link rel="shortcut icon" href="#" />
+
+    <meta name="description" content="Scan to Ingredients • An Augmented Reality Application! • A-Frame">
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet" />
+
+    <!-- include A-Frame -->
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+    <!-- <script src="Scripts/aframe.min.js"></script> -->
+
+    <!-- include ar.js for A-Frame -->
+    <!-- <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/build/aframe-ar.js"> </script> -->
+    <script src="Scripts/aframe-ar.js"></script>
+
+    <!-- include three.ar.js for A-Frame -->
+    <script>
+        THREEx.ArToolkitContext.baseURL = 'https://rawgit.com/jeromeetienne/ar.js/master/three.js/'
+    </script>
+</head>
+<body style='margin : 0px; overflow: hidden;'>
+    <div id="backToMain">
+            <a class="btn btn-default btn-lg" href="../WebXR/home.html" target="_self">
+                <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+            </a>
+    </div>
+    <a-scene embedded arjs='sourceType: webcam; detectionMode: mono; maxDetectionRate: 30; canvasWidth: 240; canvasHeight: 180'>
+        <a-marker type='pattern' url='https://raw.githubusercontent.com/MirzaAbdullah/WebXR/master/Patterns/TUBerlin.patt'>
+            <a-entity scale="1 1 1" material='color: red; transparent: true; opacity: 0.8' obj-model="obj: url(https://raw.githubusercontent.com/MirzaAbdullah/WebXR/master/objModels/CocaCola/cocacola.compressed.obj);
+                           mtl: url(https://raw.githubusercontent.com/MirzaAbdullah/WebXR/master/objModels/CocaCola/cocacola.compressed.mtl);">
+                <a-animation attribute="rotation" to="0 360 0" dur="5000" easing='linear' repeat="indefinite"></a-animation>
+            </a-entity>
+        </a-marker>
+        <a-entity camera></a-entity>
+    </a-scene>
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+</html>

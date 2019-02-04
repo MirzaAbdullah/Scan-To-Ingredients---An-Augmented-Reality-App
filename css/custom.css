@@ -1,0 +1,11 @@
+#backToMain{
+    position: fixed; 
+    top: 3.5%; 
+    right: 20px;
+    z-index: 1;
+    
+}
+
+#backToMain .btn-lg{
+    border-radius: 20px !important;
+}
