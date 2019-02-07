@@ -18,24 +18,33 @@
     <!-- include ar.js for A-Frame -->
     <!-- <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/build/aframe-ar.js"> </script> -->
     <script src="Scripts/aframe-ar.js"></script>
-    
+
     <!-- include three.ar.js for A-Frame -->
     <script>
         THREEx.ArToolkitContext.baseURL = 'https://rawgit.com/jeromeetienne/ar.js/master/three.js/'
     </script>
+
 </head>
+
 <body style='margin : 0px; overflow: hidden;'>
     <div id="backToMain">
-            <a class="btn btn-default btn-lg" href="../index.html" target="_self">
-                <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
-            </a>
+        <a class="btn btn-default btn-lg" href="../WebXR/home.html" target="_self">
+            <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+        </a>
     </div>
-    <a-scene embedded arjs='sourceType: webcam; detectionMode: mono; maxDetectionRate: 30; canvasWidth: 240; canvasHeight: 180'>
-        <a-marker type='pattern' url='https://raw.githubusercontent.com/MirzaAbdullah/Scan-To-Ingredients---An-Augmented-Reality-App/master/Patterns/CocaColaPattern.patt'>
-            <a-entity scale="0.01 0.01 0.01" material='color: red; transparent: true; opacity: 0.8' obj-model="obj: url(https://raw.githubusercontent.com/MirzaAbdullah/Scan-To-Ingredients---An-Augmented-Reality-App/master/3DModels/KitKat/Kitkat.obj);
-                           mtl: url(https://raw.githubusercontent.com/MirzaAbdullah/Scan-To-Ingredients---An-Augmented-Reality-App/master/3DModels/KitKat/Kitkat.mtl);">
-            </a-entity>
+    <a-scene class="pinch" embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono; maxDetectionRate: 30; canvasWidth: 240; canvasHeight: 180'>
+
+        <a-marker type='pattern' url='https://raw.githubusercontent.com/MirzaAbdullah/Scan-To-Ingredients---An-Augmented-Reality-App/master/Patterns/KitKatPattern.patt'>
+            <!-- <a-entity scale="0.01 0.01 0.01" material='color: red; transparent: true; opacity: 0.8' obj-model="obj: url(https://raw.githubusercontent.com/MirzaAbdullah/Scan-To-Ingredients---An-Augmented-Reality-App/master/3DModels/KitKat/KitKat.obj);
+                           mtl: url(https://raw.githubusercontent.com/MirzaAbdullah/Scan-To-Ingredients---An-Augmented-Reality-App/master/3DModels/KitKat/KitKat.mtl);">
+            </a-entity> -->
+            <a-image width="5" height="5" src="https://raw.githubusercontent.com/MirzaAbdullah/Scan-To-Ingredients---An-Augmented-Reality-App/master/img/Kitkat_P.png">s</a-image>
         </a-marker>
+
+        <a-marker type='pattern' url='https://raw.githubusercontent.com/MirzaAbdullah/Scan-To-Ingredients---An-Augmented-Reality-App/master/Patterns/ChipsPattern.patt'>
+            <a-image width="8" height="8" src="https://raw.githubusercontent.com/MirzaAbdullah/Scan-To-Ingredients---An-Augmented-Reality-App/master/img/chips_P.png">s</a-image>
+        </a-marker>
+
         <a-entity camera></a-entity>
     </a-scene>
 
@@ -44,5 +53,47 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
+    <!-- Hammer JavaScript for Extra Mobile Screen Features -->
+    <script src="Scripts/hammer.js"></script>
+
+    <script type="text/JavaScript">
+
+            (function () {
+
+                var el = document.querySelector(".pinch");
+                var ham = new Hammer(el, {
+                    domEvents: true
+                });
+                var width = 1900;
+                var height = 400;
+                var left = 950;
+                var top = 220;
+
+                ham.get('pinch').set({ enable: true });
+
+                ham.on("pinch", function (e) {
+                    console.log("pinch");
+                    if (width * e.scale >= 300) {
+                        var img = el.childNodes[1];
+                        img.style.width = (width * e.scale) + 'px';
+                        img.style.marginLeft = (-left * e.scale) + 'px';
+                        img.style.height = (height * e.scale) + 'px';
+                        img.style.marginTop = (-top * e.scale) + 'px';
+                    }
+                    console.log(e.scale);
+                });
+
+                ham.on("pinchend", function (e) {
+                    width = width * e.scale;
+                    height = height * e.scale;
+                    left = left * e.scale;
+                    top = top * e.scale;
+                    console.log(width);
+                });
+
+            })();
+
+    </script>
 </body>
+
 </html>
