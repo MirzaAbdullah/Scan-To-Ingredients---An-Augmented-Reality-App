@@ -9,7 +9,7 @@
 #
 newmtl riz
 Kd 1 1 1
-map_Kd riz.jpg
+map_Kd https://raw.githubusercontent.com/MirzaAbdullah/Scan-To-Ingredients---An-Augmented-Reality-App/master/3DModels/bolDeRiz_2/riz.jpg
 Ks 0 0 0
 Ka 0 0 0
 illum 1
