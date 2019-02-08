@@ -12,5 +12,5 @@ newmtl 10458_Wheat_Field_v1
 	Kd 0.5882 0.5882 0.5882
 	Ks 0.0000 0.0000 0.0000
 	Ke 0.0000 0.0000 0.0000
-	map_Ka 10458_Wheat_Field_v1_Diffuse.jpg
-	map_Kd 10458_Wheat_Field_v1_Diffuse.jpg
+	map_Ka https://raw.githubusercontent.com/MirzaAbdullah/Scan-To-Ingredients---An-Augmented-Reality-App/master/3DModels/WheatField/WheatField.jpg
+	map_Kd https://raw.githubusercontent.com/MirzaAbdullah/Scan-To-Ingredients---An-Augmented-Reality-App/master/3DModels/WheatField/WheatField.jpg
