@@ -13,3 +13,7 @@
 .navbar-default .navbar-header .navbar-brand, .page-scroll{
     color: #333 !important;
 }
+
+.btn-xl{
+    margin-bottom: 5% !important;
+}
